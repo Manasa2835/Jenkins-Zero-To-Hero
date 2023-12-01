@@ -7,8 +7,7 @@ pipeline {
         sh 'echo passed'
         git branch: 'main', url: 'https://github.com/Manasa2835/Jenkins-Zero-To-Hero.git'
       }
-    }
-sh 'echo passed-1'    
+    }   
     }
   }
 
