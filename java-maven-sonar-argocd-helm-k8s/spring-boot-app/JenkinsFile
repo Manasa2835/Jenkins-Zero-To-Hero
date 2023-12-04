@@ -12,6 +12,7 @@ pipeline {
  stage('Build') {
             steps {
                 script {
+                    sh 'pwd'
                     // Use the Maven installation configured in Jenkins
                     def mvnHome = tool 'Maven3'
                     sh "${mvnHome}/bin/mvn clean install"
