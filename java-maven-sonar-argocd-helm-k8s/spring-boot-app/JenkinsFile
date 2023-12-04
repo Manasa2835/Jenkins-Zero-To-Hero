@@ -8,8 +8,7 @@ pipeline {
         git branch: 'main', url: 'https://github.com/Manasa2835/Jenkins-Zero-To-Hero.git'      
       }
     }   
-    }
-
+    
  stage('Build') {
             steps {
                 script {
@@ -20,4 +19,4 @@ pipeline {
             }
         }
   }
-
+}
