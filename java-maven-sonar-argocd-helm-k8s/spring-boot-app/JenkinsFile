@@ -13,8 +13,13 @@ pipeline {
             steps {
                 script {
                     sh 'pwd'
-                    sh 'ls -l'
-                    sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
+                    sh 'ls -l'      
+                    dir('java-maven-sonar-argocd-helm-k8s/spring-boot-app') {
+                    sh 'mvn clean package'
+                    sh 'ls -l target'
+                    //sh 'pwd'
+                    //sh 'ls -l'
+                    //sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
                 }
             }
         }
