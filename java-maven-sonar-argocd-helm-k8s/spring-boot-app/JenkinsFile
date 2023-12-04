@@ -5,10 +5,19 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        git branch: 'main', url: 'https://github.com/Manasa2835/Jenkins-Zero-To-Hero.git'
-        
+        git branch: 'main', url: 'https://github.com/Manasa2835/Jenkins-Zero-To-Hero.git'      
       }
     }   
     }
+
+ stage('Build') {
+            steps {
+                script {
+                    // Use the Maven installation configured in Jenkins
+                    def mvnHome = tool 'Maven3'
+                    sh "${mvnHome}/bin/mvn clean install"
+                }
+            }
+        }
   }
 
