@@ -13,9 +13,7 @@ pipeline {
             steps {
                 script {
                     sh 'pwd'
-                    // Use the Maven installation configured in Jenkins
-                    def mvnHome = tool 'Maven3'
-                    sh "${mvnHome}/bin/mvn clean install"
+                     sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
                 }
             }
         }
