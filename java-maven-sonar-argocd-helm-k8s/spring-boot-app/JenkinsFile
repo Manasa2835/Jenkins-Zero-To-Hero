@@ -30,9 +30,17 @@ stage('Static Code Analysis') {
         SONAR_URL = "http://44.211.159.195"
       }
       steps {
+         script {
+            try
+{
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
           sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
+}
+catch (Exception e) {
+                echo "Error: ${e.message}"
+                currentBuild.result = 'FAILURE'
+            }
       }
     }
   }
