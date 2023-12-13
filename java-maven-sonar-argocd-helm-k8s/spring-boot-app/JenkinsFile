@@ -57,5 +57,14 @@ stage('Build and Push Docker Image') {
         }
       }
     }
+
+ stage('Update Deployment File') {
+      steps {
+       script {
+          sh "kubectl apply -f java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yaml"
+    }
+  }
+}
+
   }
 }
