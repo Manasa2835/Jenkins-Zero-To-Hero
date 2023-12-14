@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: manasadocker123/pipeline_1:replaceImageTag
+        image: manasadocker123/pipeline_1:${BUILD_NUMBER}
         ports:
         - containerPort: 8080
 
