@@ -56,10 +56,5 @@ stage('Build and Push Docker Image') {
         }
       }
      }
-stage('Update Deployment File') {
-        steps {
-echo "hi"
-}
-    }
   }
 }
