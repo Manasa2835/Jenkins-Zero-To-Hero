@@ -56,20 +56,5 @@ stage('Build and Push Docker Image') {
         }
       }
      }
-stage('Scan Docker Image with Trivy') {
-    steps {
-        script {
-            def imageName = "manasadocker123/pipeline_final:${BUILD_NUMBER}" // Your Docker image name
-            
-            // Run Trivy scan on the Docker image
-            sh "trivy --no-progress ${imageName}"
-            
-            // if (shouldFailBasedOnScanResults) {
-            //     currentBuild.result = 'FAILED'
-            // }
-        }
-    }
-}
-
   }
 }
