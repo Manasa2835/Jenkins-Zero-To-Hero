@@ -7,11 +7,6 @@ pipeline {
   }
   
   stages {
-stage('Clean Workspace') {
-            steps {
-                deleteDir() // Clean the workspace before starting
-            }
-        }
     stage('Checkout') {
       steps {
         sh 'echo passed'
