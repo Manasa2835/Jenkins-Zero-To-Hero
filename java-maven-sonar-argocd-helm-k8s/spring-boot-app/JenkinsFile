@@ -60,6 +60,7 @@ stage('Update Deployment File') {
         steps {
 echo "pending deployment in Kubernetes"
 }
+}
 
     }
   }
