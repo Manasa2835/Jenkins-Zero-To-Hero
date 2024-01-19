@@ -39,5 +39,27 @@ stage('Static Code Analysis') {
         }
       }
     }
+stage('upload into jfrog artifactory'){
+ steps{
+  dir('java-maven-sonar-argocd-helm-k8s/spring-boot-app/target'){
+  rtServer (
+    id: 'Artifactory-1',
+    url: 'http://35.174.14.249:8081/artifactory',
+        // If you're using Credentials ID:
+        credentialsId: 'ccrreeddeennttiiaall',
+        timeout: 300
+)
+
+rtUpload (
+    serverId: 'Artifactory-1',
+    spec: '''{
+          "files": [
+            {
+              "pattern": "spring-boot-demo-1.0.jar",
+              "target": "example-repo-local"
+            }
+         ]
+    }''',
+)
   }
 }
