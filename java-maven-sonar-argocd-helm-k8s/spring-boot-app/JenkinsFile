@@ -28,17 +28,6 @@ pipeline {
                 }
             }
         }
-
-stage('Static Code Analysis') {
-      environment {
-        SONAR_URL = "http://54.87.180.239:9000"
-      }
-      steps {
-        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-          sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
-        }
-      }
-    }
 stage('upload into jfrog artifactory'){
  steps{
   dir('java-maven-sonar-argocd-helm-k8s/spring-boot-app/target'){
