@@ -35,7 +35,7 @@ pipeline {
             id: 'Artifactory-1',
             url: 'http://35.174.14.249:8081/artifactory',
                 // If you're using Credentials ID:
-                credentialsId: 'ccrreeddeennttiiaall',
+                credentialsId: 'jfrog-connection',
                 timeout: 300
         )
 
