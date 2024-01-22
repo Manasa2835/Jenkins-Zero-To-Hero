@@ -31,7 +31,7 @@ pipeline {
 
 stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://54.87.180.239:9000"
+        SONAR_URL = "http://100.27.13.173:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -45,7 +45,7 @@ stage('Static Code Analysis') {
           dir('java-maven-sonar-argocd-helm-k8s/spring-boot-app/target'){
           rtServer (
             id: 'Artifactory-1',
-            url: 'http://35.174.14.249:8081/artifactory',
+            url: 'http://100.27.13.173:8081/artifactory',
                 // If you're using Credentials ID:
                 credentialsId: 'jfrog-connection',
                 timeout: 300
